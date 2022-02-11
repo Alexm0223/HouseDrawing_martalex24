@@ -1,3 +1,14 @@
+/**
+ * <!-- class HouseView -->
+ *
+ * This class defines a custom drawing element that is a rectangle.
+ *
+ * @author Alex Martinez-Lopez
+ * @version Spring 2022
+ *
+ *
+ */
+
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -41,23 +52,16 @@ public class HouseView extends SurfaceView {
         setBackgroundColor(Color.WHITE);  //better than black default
 
     }
-
+//Will draw the house potrait
     public void drawHouse(Canvas canvas, float left, float bottom) {
-        canvas.drawRect(left, bottom - houseHeight, left + houseWidth, bottom, candlePaint);
+        canvas.drawRect(left, bottom - houseHeight, left + houseWidth, bottom, grassPaint);
 
-        //draw the outer flame
-        float flameCenterX = left + candleWidth / 2;
-        float flameCenterY = bottom - wickHeight - candleHeight - outerFlameRadius / 3;
-        canvas.drawCircle(flameCenterX, flameCenterY, outerFlameRadius, outerFlamePaint);
+        //draw the sun
+        float flameCenterX = left + skyWidth / 2;
+        float flameCenterY = bottom - houseHeight - skyHeight - sunRadius / 3;
+        canvas.drawCircle(flameCenterX, flameCenterY, sunRadius, sunPaint);
 
-        //draw the inner flame
-        flameCenterY += outerFlameRadius / 3;
-        canvas.drawCircle(flameCenterX, flameCenterY, innerFlameRadius, innerFlamePaint);
 
-        //draw the wick
-        float wickLeft = left + candleWidth / 2 - wickWidth / 2;
-        float wickTop = bottom - wickHeight - candleHeight;
-        canvas.drawRect(wickLeft, wickTop, wickLeft + wickWidth, wickTop + wickHeight, wickPaint);
 
     }
 }
